@@ -70,8 +70,9 @@ class DataViewController: UIViewController {
 
 extension DataViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let alertController = UIAlertController(title: "Clicked", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Clicked", message: "\((tableView.cellForRow(at: indexPath)?.textLabel!.text)!.capitalized)", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertController, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
